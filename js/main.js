@@ -9,58 +9,52 @@ const perf = {
 // Theme manager
 class ThemeManager {
 	constructor() {
-		this.body = document.body;
-		this.themeButtons = document.querySelectorAll('.theme-btn');
+		// order used when cycling the single theme toggle button
+		this.themes = ['', 'theme-dark', 'theme-sunset', 'theme-purple', 'theme-green', 'theme-multicolor', 'theme-minimal'];
 		this.currentTheme = localStorage.getItem('geo_theme') || '';
+		this.body = document.body;
+		this.toggleBtn = document.getElementById('themeToggle');
 
-		// Apply saved theme or detect system preference
 		if (this.currentTheme) {
 			this.body.classList.add(this.currentTheme);
-			this.updateActiveButton();
-		} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			this.setTheme('theme-dark');
+			this.updateIcon();
 		}
 
-		// Set up theme buttons
-		this.themeButtons.forEach(btn => {
-			btn.addEventListener('click', () => {
-				const theme = btn.dataset.theme;
-				this.setTheme(theme);
-			});
-		});
+		if (this.toggleBtn) this.toggleBtn.addEventListener('click', () => this.cycleTheme());
 
-		// Watch for system theme changes
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-			if (!localStorage.getItem('geo_theme')) {
-				this.setTheme(e.matches ? 'theme-dark' : '');
-			}
-		});
+		// Respect system preference if no saved theme
+		if (!localStorage.getItem('geo_theme')) {
+			const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (prefersDark) this.setTheme('theme-dark');
+		}
+	}
+
+	cycleTheme() {
+		const idx = this.themes.indexOf(this.currentTheme);
+		const next = this.themes[(idx + 1) % this.themes.length];
+		this.setTheme(next);
 	}
 
 	setTheme(theme) {
-		// Remove current theme
-		if (this.currentTheme) {
-			this.body.classList.remove(this.currentTheme);
-		}
-
-		// Apply new theme
+		if (this.currentTheme) this.body.classList.remove(this.currentTheme);
 		this.currentTheme = theme;
-		if (theme) {
-			this.body.classList.add(theme);
-		}
-
-		// Update UI and save preference
-		this.updateActiveButton();
+		if (theme) this.body.classList.add(theme);
 		localStorage.setItem('geo_theme', theme);
-
-		// Dispatch event for other components
-		window.dispatchEvent(new CustomEvent('themechange', { detail: { theme }}));
+		this.updateIcon();
 	}
 
-	updateActiveButton() {
-		this.themeButtons.forEach(btn => {
-			btn.classList.toggle('active', btn.dataset.theme === this.currentTheme);
-		});
+	updateIcon() {
+		if (!this.toggleBtn) return;
+		const icons = {
+			'': '☀️',
+			'theme-dark': '🌙',
+			'theme-sunset': '🌇',
+			'theme-purple': '🟣',
+			'theme-green': '🌿',
+			'theme-multicolor': '🎨',
+			'theme-minimal': '⚪'
+		};
+		this.toggleBtn.textContent = icons[this.currentTheme] || '☀️';
 	}
 }
 
