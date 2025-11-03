@@ -10,21 +10,24 @@ const perf = {
 class ThemeManager {
 	constructor() {
 		this.body = document.body;
-		this.themeSelect = document.getElementById('themeSelect');
+		this.themeButtons = document.querySelectorAll('.theme-btn');
 		this.currentTheme = localStorage.getItem('geo_theme') || '';
 
 		// Apply saved theme or detect system preference
 		if (this.currentTheme) {
 			this.body.classList.add(this.currentTheme);
-			if (this.themeSelect) this.themeSelect.value = this.currentTheme;
+			this.updateActiveButton();
 		} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			this.setTheme('theme-dark');
 		}
 
-		// Set up theme selector
-		if (this.themeSelect) {
-			this.themeSelect.addEventListener('change', (e) => this.setTheme(e.target.value));
-		}
+		// Set up theme buttons
+		this.themeButtons.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const theme = btn.dataset.theme;
+				this.setTheme(theme);
+			});
+		});
 
 		// Watch for system theme changes
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
@@ -47,11 +50,17 @@ class ThemeManager {
 		}
 
 		// Update UI and save preference
-		if (this.themeSelect) this.themeSelect.value = theme;
+		this.updateActiveButton();
 		localStorage.setItem('geo_theme', theme);
 
 		// Dispatch event for other components
 		window.dispatchEvent(new CustomEvent('themechange', { detail: { theme }}));
+	}
+
+	updateActiveButton() {
+		this.themeButtons.forEach(btn => {
+			btn.classList.toggle('active', btn.dataset.theme === this.currentTheme);
+		});
 	}
 }
 
