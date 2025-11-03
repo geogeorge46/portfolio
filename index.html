@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Geo George | Software Developer Portfolio</title>
+	<meta name="description" content="Geo George — Software Developer, Integrated MCA student. Skills: Software Dev, AI/ML, Web Technologies. Open source contributor." />
+	<meta name="keywords" content="Geo George, Software Developer, MCA Student, Python Developer, AI, Web" />
+	<meta property="og:title" content="Geo George | Software Developer Portfolio" />
+	<meta property="og:description" content="Integrated MCA student specializing in Software Development, AI/ML and Web Technologies." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://your-site.example/" />
+	<meta property="og:image" content="/assets/avatar.svg" />
+	<link rel="icon" href="/assets/favicon.svg" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header class="nav" id="navbar">
+		<div class="container nav-inner">
+			<a class="brand" href="#">Geo George</a>
+			<nav class="nav-links" id="navLinks">
+				<a href="#about">About</a>
+				<a href="#skills">Skills</a>
+				<a href="#projects">Projects</a>
+				<a href="#experience">Experience</a>
+				<a href="#contact">Contact</a>
+			</nav>
+			<div class="nav-actions">
+				<select id="themeSelect" class="theme-select" aria-label="Select theme">
+					<option value="">Light Blue</option>
+					<option value="theme-dark">Dark Mode</option>
+					<option value="theme-minimal">Gray Minimal</option>
+				</select>
+				<button id="mobileMenuBtn" class="icon-btn mobile-only" aria-label="Toggle menu">☰</button>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero" id="home">
+			<div class="container hero-inner">
+				<div class="hero-copy" data-aos="fade-up">
+					<h1 class="slide-in">Hi, I’m Geo George <span class="wave float">👋</span></h1>
+					<p class="subtitle fade-scale" id="typing">Software Developer | MCA Integrated Student | Open Source Contributor</p>
+					<div class="hero-ctas slide-in" style="animation-delay: 0.2s">
+						<a class="btn primary" id="downloadResume" href="/resume.pdf" download>📄 Download Resume</a>
+						<a class="btn outline" href="https://github.com/" target="_blank" rel="noopener">💻 View GitHub</a>
+						<a class="btn" href="#contact">📬 Contact Me</a>
+					</div>
+				</div>
+				<div class="hero-media" data-aos="fade-left">
+					<img srcset="assets/avatar-sm.svg 200w, assets/avatar-lg.svg 400w"
+							 sizes="(max-width: 640px) 160px, 220px"
+							 src="assets/avatar.svg" 
+							 alt="Geo George avatar" 
+							 class="avatar" 
+							 loading="lazy">
+				</div>
+			</div>
+		</section>
+
+		<section id="about" class="section">
+			<div class="container" data-aos="fade-up">
+				<h2 class="section-title">About Me</h2>
+				<div class="about-grid">
+					<div class="about-text">
+						<p>Passionate about developing efficient and scalable software applications. Experienced in web development, database management, and open-source collaboration. Focused on learning, building, and innovating.</p>
+						<ul class="quick-info">
+							<li><strong>Location:</strong> Kerala, India</li>
+							<li><strong>Email:</strong> <a href="mailto:geogeorge24680@gmail.com">geogeorge24680@gmail.com</a></li>
+							<li><strong>Degree:</strong> Integrated MCA, Amal Jyothi College of Engineering</li>
+						</ul>
+					</div>
+					<div class="about-avatar">
+						<img srcset="assets/avatar-sm.svg 200w, assets/avatar-lg.svg 400w"
+								 sizes="(max-width: 640px) 160px, 180px"
+								 src="assets/avatar.svg" 
+								 alt="Geo George avatar" 
+								 class="avatar-lg" 
+								 loading="lazy">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="skills" class="section">
+			<div class="container" data-aos="fade-up">
+				<h2 class="section-title">Skills</h2>
+				<div class="skills-grid">
+					<div class="skill-group">
+						<h3>Languages</h3>
+						<div class="badges">
+							<span class="badge">Python</span>
+							<span class="badge">Java</span>
+							<span class="badge">C++</span>
+							<span class="badge">JavaScript</span>
+							<span class="badge">PHP</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h3>Frameworks & DB</h3>
+						<div class="badges">
+							<span class="badge">React</span>
+							<span class="badge">Node.js</span>
+							<span class="badge">MySQL</span>
+							<span class="badge">Flask</span>
+						</div>
+					</div>
+					<div class="skill-group">
+						<h3>Tools</h3>
+						<div class="badges">
+							<span class="badge">Git</span>
+							<span class="badge">GitHub</span>
+							<span class="badge">Figma</span>
+							<span class="badge">Postman</span>
+							<span class="badge">Google Cloud</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects" class="section">
+			<div class="container" data-aos="fade-up">
+				<h2 class="section-title">Projects</h2>
+				<div class="projects-grid">
+					<!-- Project card -->
+					<article class="card project-card">
+						<img class="card-thumb" 
+								 srcset="assets/project-sm.svg 400w, assets/project-lg.svg 800w"
+								 sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+								 src="assets/project-placeholder.svg" 
+								 alt="Gearequip thumbnail" 
+								 loading="lazy">
+						<div class="card-body">
+							<h3>Gearequip</h3>
+							<p>Machinery rental platform — internship project at VaultofCodes. Built core rental flows and DB design.</p>
+							<div class="tech">Python • Django • MySQL • JS</div>
+							<div class="card-actions">
+								<a class="link" href="#">View Code</a>
+								<a class="link" href="#">Live Demo</a>
+							</div>
+						</div>
+					</article>
+
+					<article class="card project-card">
+						<img class="card-thumb"
+								 srcset="assets/project-sm.svg 400w, assets/project-lg.svg 800w"
+								 sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+								 src="assets/project-placeholder.svg"
+								 alt="Google Solution Challenge"
+								 loading="lazy">
+						<div class="card-body">
+							<h3>Google Solution Challenge</h3>
+							<p>AI-powered innovation project focusing on [brief]. Participated as team lead.</p>
+							<div class="tech">AI • Python • Cloud</div>
+							<div class="card-actions"><a class="link" href="#">Details</a></div>
+						</div>
+					</article>
+
+					<article class="card project-card">
+						<img class="card-thumb"
+								 srcset="assets/project-sm.svg 400w, assets/project-lg.svg 800w"
+								 sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+								 src="assets/project-placeholder.svg"
+								 alt="Smart India Hackathon"
+								 loading="lazy">
+						<div class="card-body">
+							<h3>Smart India Hackathon 2025</h3>
+							<p>Institution prototype developed during SIH — systems integration and prototype demo.</p>
+							<div class="tech">IoT • Web • Python</div>
+							<div class="card-actions"><a class="link" href="#">Details</a></div>
+						</div>
+					</article>
+
+					<article class="card project-card">
+						<img class="card-thumb"
+								 srcset="assets/project-sm.svg 400w, assets/project-lg.svg 800w"
+								 sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+								 src="assets/project-placeholder.svg"
+								 alt="I2U Innovation Project"
+								 loading="lazy">
+						<div class="card-body">
+							<h3>I2U Innovation Project</h3>
+							<p>Campus tech initiative connecting students and mentors; feature prototypes and testing.</p>
+							<div class="tech">React • Node.js</div>
+							<div class="card-actions"><a class="link" href="#">Details</a></div>
+						</div>
+					</article>
+
+					<article class="card project-card">
+						<img class="card-thumb"
+								 srcset="assets/project-sm.svg 400w, assets/project-lg.svg 800w"
+								 sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+								 src="assets/project-placeholder.svg"
+								 alt="WikiSyllabus"
+								 loading="lazy">
+						<div class="card-body">
+							<h3>WikiSyllabus Challenge</h3>
+							<p>Open-source contribution to µLearn — improved syllabus sync and search features.</p>
+							<div class="tech">Open Source • GitHub</div>
+							<div class="card-actions"><a class="link" href="#">Repo</a></div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="experience" class="section">
+			<div class="container" data-aos="fade-up">
+				<h2 class="section-title">Experience & Achievements</h2>
+				<div class="timeline">
+					<div class="timeline-item">
+						<div class="time">2024</div>
+						<div class="role">Web Development Intern — VaultofCodes.in</div>
+						<div class="desc">Worked on Gearequip, backend flows, and deployment.</div>
+					</div>
+					<div class="timeline-item">
+						<div class="time">2023–2024</div>
+						<div class="role">Open Source Contributor — µLearn / Hacktoberfest</div>
+						<div class="desc">Submitted PRs improving docs and search.</div>
+					</div>
+					<div class="timeline-item">
+						<div class="time">2025</div>
+						<div class="role">Smart India Hackathon — Participant</div>
+						<div class="desc">Built institutional prototype.</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="education" class="section">
+			<div class="container" data-aos="fade-up">
+				<h2 class="section-title">Education</h2>
+				<div class="card">
+					<h3>Amal Jyothi College of Engineering — Integrated MCA</h3>
+					<p>GPA: 7.22 / 10.00</p>
+					<p>Relevant coursework: Data Structures, AI, Web Technologies, Cloud Computing</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="section">
+			<div class="container" data-aos="fade-up">
+				<h2 class="section-title">Contact</h2>
+				<div class="contact-grid">
+					<form id="contactForm" class="card contact-form" novalidate>
+						<label for="name">Name</label>
+						<input id="name" name="name" required>
+						<label for="email">Email</label>
+						<input id="email" name="email" type="email" required>
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+						<div class="form-actions">
+							<button class="btn primary" type="submit">Send Message</button>
+							<button class="btn outline" type="reset">Reset</button>
+						</div>
+						<p class="form-status" aria-live="polite"></p>
+					</form>
+
+					<aside class="card contact-info">
+						<h3>Get in touch</h3>
+						<p>📧 <a href="mailto:geogeorge24680@gmail.com">geogeorge24680@gmail.com</a></p>
+						<p>💼 <a href="#">LinkedIn</a></p>
+						<p>💻 <a href="#">GitHub</a></p>
+						<div class="social-icons">
+							<a class="icon" href="#"></a>
+							<a class="icon" href="#"></a>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<button id="backToTop" class="back-top" aria-label="Back to top">↑</button>
+
+	<footer class="site-footer">
+		<div class="container">© Geo George — Built with HTML, CSS & JS • Open to opportunities</div>
+	</footer>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
+
