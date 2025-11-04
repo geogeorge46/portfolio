@@ -128,6 +128,17 @@ class SmoothScroll {
 			lenis.raf(time * 1000);
 		});
 		gsap.ticker.lagSmoothing(0);
+
+		// Handle anchor links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					lenis.scrollTo(target, { offset: -60 }); // Offset for navbar
+				}
+			});
+		});
 	}
 }
 
@@ -309,7 +320,7 @@ class CodeParticles {
 			top: 0;
 			left: 0;
 			pointer-events: none;
-			z-index: 1;
+			z-index: -2;
 			opacity: 0.15;
 		`;
 
@@ -396,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		SmoothScroll.init();
 		Effects.init();
 		new CodeParticles(); // Floating code particles background
-		new ContactForm('contactForm');
+		new ContactForm('contactForm'); // Initialize contact form handler
 		const t = document.getElementById('typing'); if (t) new TypingEffect(t, 30);
 		console.log('Site initialized with immersive scroll effects ✨');
 	} catch (err) {

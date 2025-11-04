@@ -192,6 +192,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 .parallax-layer-1 { background-image: radial-gradient(circle at 20% 80%, rgba(0,74,173,0.03) 0%, transparent 50%); }
@@ -199,6 +200,7 @@ body {
 .parallax-layer-3 { background-image: radial-gradient(circle at 40% 40%, rgba(56,189,248,0.01) 0%, transparent 50%); }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+main { position: relative; z-index: 10; }
 .nav { position: sticky; top: 0; background: transparent; z-index: 40; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; }
 .brand { font-weight: 700; color: var(--accent); text-decoration: none; }
@@ -374,12 +376,42 @@ body {
   background-clip: padding-box, border-box;
 }
 
+/* Contact form styles */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .hero-media { width: 220px; }
 .avatar {
   width: 100%;
   border-radius: 999px;
   border: 4px solid rgba(255,255,255,0.12);
   box-shadow: var(--shadow);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+#about-avatar-img {
+  animation: float 3s ease-in-out infinite;
+}
+
+#about-avatar-img:hover {
+  animation: none;
+  transform: rotateY(30deg) rotateX(15deg) rotateZ(10deg) scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 180, 216, 0.6), 0 0 60px rgba(0, 180, 216, 0.3);
+  filter: brightness(1.1);
 }
 
 .section { padding: 5rem 0; }
