@@ -184,7 +184,7 @@ class Effects {
 			gsap.to(card, {
 				opacity: 1,
 				duration: 0.6,
-				delay: i * 0.1,
+				delay: 0,
 				ease: "power2.out"
 			});
 		});
@@ -247,7 +247,7 @@ class Effects {
 				opacity: 0,
 				y: 30,
 				duration: 0.5,
-				delay: i * 0.1,
+				delay: 0,
 				ease: "power2.out"
 			});
 		});
