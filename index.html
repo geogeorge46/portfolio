@@ -13,6 +13,7 @@
 	<meta property="og:image" content="/assets/avatar.svg" />
 	<link rel="icon" href="/assets/favicon.svg" />
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/chatbot.css">
 	<!-- Animation Libraries -->
@@ -82,11 +83,7 @@
 							<li><strong>Email:</strong> <a href="mailto:geogeorge24680@gmail.com">geogeorge24680@gmail.com</a></li>
 							<li><strong>Degree:</strong> Integrated MCA, Amal Jyothi College of Engineering</li>
 						</ul>
-					</div>
-					<div class="about-avatar" style="perspective: 1000px;">
-						<img id="about-avatar-img" src="assets/avatar.jpg" alt="Geo George avatar" class="avatar-lg" role="button" tabindex="0" aria-label="Click to chat with my AI assistant" style="transition: transform 0.3s ease; transform-style: preserve-3d;">
-					</div>
-				</div>
+					
 			</div>
 		</section>
 
@@ -259,36 +256,43 @@
 		</section>
 
 		<section id="contact" class="section">
-			<div class="container">
-				<h2 class="section-title">Contact</h2>
-				<div class="contact-grid">
-					<form id="contactForm" class="card contact-form" action="mailto:geogeorge24680@gmail.com" method="post" enctype="text/plain">
-						<label for="name">Name</label>
-						<input id="name" name="name" required>
-						<label for="email">Email</label>
-						<input id="email" name="email" type="email" required>
-						<label for="message">Message</label>
-						<textarea id="message" name="message" rows="5" required></textarea>
-						<div class="form-actions">
-							<button class="btn primary" type="submit">Send Message</button>
-							<button class="btn outline" type="reset">Reset</button>
-						</div>
-						<p class="form-status" aria-live="polite"></p>
-					</form>
+	<div class="container">
+		<h2 class="section-title">Contact</h2>
+		<div class="contact-grid">
+			<form id="contactForm" class="card contact-form">
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" >
 
-					<aside class="card contact-info">
-						<h3>Get in touch</h3>
-						<p>📧 <a href="mailto:geogeorge24680@gmail.com">geogeorge24680@gmail.com</a></p>
-						<p>💼 <a href="#">LinkedIn</a></p>
-						<p>💻 <a href="#">GitHub</a></p>
-						<div class="social-icons">
-							<a class="icon" href="#"></a>
-							<a class="icon" href="#"></a>
-						</div>
-					</aside>
+				<label for="email">Email</label>
+				<input type="email" id="email" name="email" type="email" >
+
+				<label for="message">Message</label>
+				<textarea  type="text" id="message" name="message" rows="5"></textarea>
+
+				<div class="form-actions">
+					<button class="btn primary" type="submit">Send Message</button>
+					<button class="btn outline" type="reset">Reset</button>
 				</div>
-			</div>
-		</section>
+			</form>
+
+			<aside class="card contact-info">
+				<h3>Get in touch</h3>
+				<p>📧 <a href="mailto:geogeorge24680@gmail.com">geogeorge24680@gmail.com</a></p>
+				<p>💼 <a href="https://www.linkedin.com/in/geo-george-883616276">LinkedIn</a></p>
+				<p>💻 <a href="https://github.com/geogeorge46">GitHub</a></p>
+				<div class="social-icons">
+					
+					<a class="icon" href="https://www.facebook.com/gio.george.733/"><i class="fa-brands fa-facebook"></i></a>
+					<a class="icon" href="https://www.instagram.com/g_eo.g_eorge?igsh=MTZ5bXVwc3dwNWoyYw=="><i class="fa-brands fa-instagram"></i></a>
+
+					
+				</div>
+					
+			</aside>
+		</div>
+	</div>
+</section>
+
 	</main>
 
 	<button id="backToTop" class="back-top" aria-label="Back to top">↑</button>

@@ -142,25 +142,10 @@ class SmoothScroll {
 	}
 }
 
-// Contact form
-class ContactForm {
-	constructor(id) {
-		this.form = document.getElementById(id);
-		if (!this.form) return;
-		this.status = this.form.querySelector('.form-status');
-		this.form.addEventListener('submit', e => {
-			e.preventDefault();
-			const name = this.form.name.value.trim();
-			const email = this.form.email.value.trim();
-			const message = this.form.message.value.trim();
-			if (!name || !email || !message) { this.status.textContent = 'Please fill all fields.'; return; }
-			const subject = encodeURIComponent('Portfolio contact from ' + name);
-			const body = encodeURIComponent(message + '\n\n' + name + '\n' + email);
-			window.location.href = `mailto:geogeorge24680@gmail.com?subject=${subject}&body=${body}`;
-			this.status.textContent = 'Opening your email client...';
-		});
-	}
-}
+
+
+
+
 
 // Vanta, GSAP animations and other effects
 class Effects {
@@ -195,15 +180,9 @@ class Effects {
 
 		// Animate project cards with stagger effect
 		gsap.utils.toArray('.project-card').forEach((card, i) => {
-			gsap.from(card, {
-				scrollTrigger: {
-					trigger: card,
-					start: "top 80%",
-					end: "bottom 20%",
-					toggleActions: "play none none none",
-				},
-				opacity: 0,
-				y: 50,
+			gsap.set(card, { opacity: 0 });
+			gsap.to(card, {
+				opacity: 1,
 				duration: 0.6,
 				delay: i * 0.1,
 				ease: "power2.out"
@@ -395,6 +374,67 @@ class CodeParticles {
 			cancelAnimationFrame(this.animationId);
 			this.isRunning = false;
 		}
+	}
+}
+
+// Contact Form Handler
+class ContactForm {
+	constructor(formId) {
+		this.form = document.getElementById(formId);
+		this.status = document.querySelector('.form-status');
+		if (!this.form) return;
+
+		if (!this.status) {
+			this.status = document.createElement('div');
+			this.status.className = 'form-status';
+			this.form.appendChild(this.status);
+		}
+
+		console.log('ContactForm initialized');
+		this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+		this.form.addEventListener('click', (e) => console.log('Form clicked', e.target));
+	}
+
+	handleSubmit(e) {
+		e.preventDefault(); // Always prevent default form submission
+		console.log('Form submit triggered');
+		const name = this.form.name.value.trim();
+		const email = this.form.email.value.trim();
+		const message = this.form.message.value.trim();
+
+		if (!name || !email || !message) {
+			this.showStatus('Please fill in all fields.', 'error');
+			return;
+		}
+
+		if (!this.isValidEmail(email)) {
+			this.showStatus('Please enter a valid email address.', 'error');
+			return;
+		}
+
+		// Construct mailto URL with pre-filled data
+		const subject = encodeURIComponent(`Contact from ${name}`);
+		const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+		const mailtoUrl = `mailto:geogeorge24680@gmail.com?subject=${subject}&body=${body}`;
+
+		// Show status and open email client
+		this.showStatus('Opening your email client...', 'success');
+		window.location.href = mailtoUrl;
+	}
+
+	isValidEmail(email) {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(email);
+	}
+
+	showStatus(message, type) {
+		if (!this.status) return;
+		this.status.textContent = message;
+		this.status.style.color = type === 'error' ? 'var(--accent-2)' : 'var(--accent)';
+		this.status.style.opacity = 1;
+		setTimeout(() => {
+			this.status.style.opacity = 0;
+		}, 5000);
 	}
 }
 
